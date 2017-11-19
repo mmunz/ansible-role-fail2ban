@@ -2,5 +2,5 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - ansible-role-fail2ban
+    - role: ansible-role-fail2ban
       fail2ban_enabled: yes
