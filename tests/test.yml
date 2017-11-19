@@ -1,6 +1,6 @@
 ---
 - hosts: localhost
-  remote_user: root
+  become: yes
   roles:
     - role: ansible-role-fail2ban
       fail2ban_enabled: yes
