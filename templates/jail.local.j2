@@ -1,0 +1,22 @@
+# {{ ansible_managed }}
+[DEFAULT]
+banaction = iptables-xt_recent-echo
+ignoreip = {{ fail2ban_ignoreip }}
+bantime = {{ fail2ban_bantime }}
+destemail = {{ fail2ban_destemail }}
+sender = {{ fail2ban_sender }}
+sendername = {{ fail2ban_sendername }}
+findtime = {{ fail2ban_findtime }}
+maxretry = {{ fail2ban_maxretry }}
+usedns = {{ fail2ban_usedns }}
+
+{% if fail2ban_jail_ssh_enabled %}
+[ssh]
+enabled  = true
+port     = ssh
+filter   = sshd
+logpath  = /var/log/auth.log
+maxretry = {{ fail2ban_jail_ssh_maxretry }}
+{% endif %}
+
+

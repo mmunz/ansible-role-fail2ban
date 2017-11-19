@@ -1,0 +1,4 @@
+---
+# tasks file for c1.fail2ban
+- include: install-deb.yml
+  when: fail2ban_enabled

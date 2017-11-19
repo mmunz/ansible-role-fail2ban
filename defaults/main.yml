@@ -1,0 +1,23 @@
+---
+# defaults file for c1.fail2ban
+
+fail2ban_enabled: no
+
+# fail2ban.local
+fail2ban_loglevel: 3
+fail2ban_logtarget: /var/log/fail2ban.log
+
+### jails ###
+fail2ban_ignoreip: 127.0.0.1/8
+fail2ban_bantime: 3600
+fail2ban_destemail: root
+fail2ban_sender: "{{ ansible_fqdn }}"
+fail2ban_sendername: "Fail2ban on {{ ansible_fqdn }}"
+fail2ban_findtime: 600
+fail2ban_maxretry: 3
+fail2ban_usedns: warn
+
+
+# ssh
+fail2ban_jail_ssh_enabled: yes
+fail2ban_jail_ssh_maxretry: "{{ fail2ban_maxretry }}"
